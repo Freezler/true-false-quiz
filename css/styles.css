@@ -80,18 +80,26 @@ header {
   text-align: center;
   background: var(--ld-blue);
   border-radius: 0.5rem;
-  padding-block: 1rem;
+  line-height: 1;
+
+  justify-content: center;
+  place-content: center;
+  place-items: center;
+  gap: 0.3rem;
+
   border: 1px solid var(--ld-border2);
   box-shadow: -1px 1px 10px 1px var(--ld-border);
   & h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     text-decoration: underline;
-    text-underline-offset: 1px;
-    text-decoration-thickness: 1px;
+    text-underline-offset: 12px;
+    text-decoration-thickness: 2px;
     text-shadow: 1px 1px 2px var(--ld-border2);
   }
   & p {
     font-size: 0.7rem;
+    line-height: 1.05;
+
   }
 }
 
@@ -122,7 +130,7 @@ header {
   background-position: center center;
   border-radius: 0.5rem;
   object-position: center center;
-  height: 196px;
+  height: 140px;
   background-repeat: no-repeat;
   object-fit: fill;
   display: grid;
