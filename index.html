@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz.js</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>true || false</h1>
+            <p>Do you know javaScript? <br>let's find out!</p>
+
+        </header>
+        <fieldset class="radio-switch" id="mode-switcher">
+            <legend>Color Scheme</legend>
+            <input type="radio" name="color-scheme" id="light" checked>
+            <label for="light">Light</label>
+            <input type="radio" name="color-scheme" id="dark">
+            <label for="dark">Dark</label>
+        </fieldset>
+        <div class="wrapper">
+            <div id="score">
+                <p>Score: <span id="correct">0</span> / <span id="completed">0</span></p>
+            </div>
+            <main>
+                <div class="statementWrapper">
+                    <p id="statement">statement goes here</p>
+                </div>
+
+                <div id="options" role="radiogroup" aria-labelledby="statement">
+                    <button name="true" value="true">true</button>
+                    <button name="false" value="false">false</button>
+                </div>
+
+                <div aria-live="assertive" class="explanationWrapper">
+                    <p id="explanation">hah</p>
+                </div>
+
+                <button id="nextButton" name="next" value="false" disabled>next question</button>
+                <button id="resetButton" class="hidden" name="reset" value="false">reset quiz</button>
+
+            </main>
+        </div>
+    </div>
+</body>
+
+<script src="/js/main.js" type="text/javascript"></script>
+
+</html>

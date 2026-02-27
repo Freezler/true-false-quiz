@@ -1,0 +1,274 @@
+:root {
+  --primary: oklch(60% 0.25 270); /* brighter purple, ~4.8:1 on white */
+  --secondary: oklch(92% 0.12 100); /* light vivid green-yellow, good accent */
+  --background: oklch(98% 0.015 240); /* very light cool gray — safe base */
+  --charcoal: oklch(20% 0.05 240); /* dark gray for dark mode background */
+  --correct: oklch(68% 0.18 145); /* accessible green, ~4.6:1 on white */
+  --incorrect: oklch(60% 0.2 25); /* accessible red, ~4.5:1 on white */
+  --explanation: oklch(
+    61.935% 0.11267 242.744 / 0.471
+  ); /* light gray-blue, good for explanation bg */
+  --dark-statement: oklch(
+    19.053% 0.05247 21.511 / 0.504
+  ); /* dark gray with a hint of blue, good for text on dark bg */
+  --light-statement: oklch(97.908% 0.01262 229.265 / 0.527);
+  /* dark gray for text on light bg */
+  --shadow: oklch(0% 0 0 / 0.18); /* softer shadow */
+  --ld-statement: light-dark(var(--light-statement), var(--dark-statement));
+  --ld-border: light-dark(var(--charcoal), var(--background));
+  --ld-border2: light-dark(var(--background), var(--charcoal));
+  --ld-bkgd: light-dark(var(--background), var(--charcoal));
+  --ld-text: light-dark(var(--charcoal), var(--light-statement));
+  --ld-blue: light-dark(var(--primary), oklch(82.775% 0.11301 57.978 / 0.8));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  color-scheme: light dark;
+}
+
+html:has(#mode-switcher #light:checked) {
+  color-scheme: light;
+}
+
+html:has(#mode-switcher #dark:checked) {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  font-family: sans-serif;
+  background-image: var(--background);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100dvh;
+  color: var(--ld-text);
+}
+.wrapper {
+  transition: all 300s ease-in-out;
+  margin: 3rem auto;
+  width: 100%;
+  max-width: 60dvw;
+  @media (max-width: 600px) {
+    width: 100%;
+    max-width: 90dvw;
+    margin: 1rem auto;
+  }
+}
+
+main {
+  width: 100%;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+header {
+  min-width: 300px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--ld-blue);
+  border-radius: 0.5rem;
+  padding-block: 1rem;
+  border: 1px solid var(--ld-border2);
+  box-shadow: -1px 1px 10px 1px var(--ld-border);
+  & h1 {
+    font-size: 3rem;
+    text-decoration: underline;
+    text-underline-offset: 1px;
+    text-decoration-thickness: 1px;
+    text-shadow: 1px 1px 2px var(--ld-border2);
+  }
+  & p {
+    font-size: 0.7rem;
+  }
+}
+
+#score {
+  background: oklch(82.775% 0.11301 57.978 / 0.8);
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  corner-shape: scoop;
+  border-radius: 4rem;
+  padding-block: 0.425rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.04rem;
+  width: 200px;
+}
+
+.statementWrapper {
+  background-image:
+    linear-gradient(
+      to right,
+      var(--primary),
+      oklch(82.775% 0.11301 57.978 / 0.8)
+    ),
+    url("https://images.unsplash.com/photo-1506765515384-028b60a970df?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: 100%;
+  background-position: center center;
+  border-radius: 0.5rem;
+  object-position: center center;
+  height: 196px;
+  background-repeat: no-repeat;
+  object-fit: fill;
+  display: grid;
+}
+
+#statement {
+  border: 0.4px solid var(--shadow);
+  box-shadow: -2px 2px 5px -2px var(--shadow);
+  font-size: clamp(16px, 4vw, 24px);
+  text-align: center;
+  display: grid;
+  place-items: center;
+  place-self: center;
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  border-radius: 12px;
+
+  min-width: 24ch;
+  background: var(--ld-statement);
+}
+
+.explanationWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-inline: 2px solid var(--shadow);
+  border-radius: 0.5rem;
+}
+
+#explanation {
+  padding: 1rem;
+  text-align: center;
+  font-size: clamp(12px, 4vw, 22px);
+  text-wrap: pretty;
+  border-radius: 0.5rem;
+  color: var(--ld-text);
+}
+
+button {
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid var(--ld-border);
+  cursor: pointer;
+  margin: 0 auto;
+  box-shadow: 2px 2px 5px var(--shadow);
+}
+button:disabled {
+  cursor: not-allowed;
+  color: rgba(73, 70, 70, 0.5);
+}
+
+button:has(.incorrect) {
+  background-color: var(--incorrect);
+}
+
+#options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.425rem;
+}
+
+.correct {
+  background-color: oklch(81.054% 0.19485 143.538);
+}
+
+.incorrect {
+  background-color: oklch(63.443% 0.16884 14.395);
+}
+
+.hidden {
+  display: none;
+}
+
+@layer switch {
+  .radio-switch {
+    margin-top: 1rem;
+    border: none;
+    padding: 0;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+  }
+  .radio-switch legend {
+    font-size: 2px;
+    opacity: 0;
+    position: absolute;
+  }
+  .radio-switch label {
+    display: inline-block;
+    line-height: 2;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 2;
+  }
+  .radio-switch input {
+    opacity: 0;
+    position: absolute;
+  }
+  .radio-switch label:first-of-type {
+    padding-right: 5em;
+  }
+  .radio-switch label:last-child {
+    margin-left: -4.25em;
+    padding-left: 5em;
+  }
+  .radio-switch:focus-within label:first-of-type::after {
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px var(--ld-blue);
+  }
+  .radio-switch label:first-of-type::before,
+  .radio-switch label:first-of-type::after {
+    border: 1px solid var(--primary);
+    content: "";
+    height: 2em;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    vertical-align: middle;
+  }
+  .radio-switch label:first-of-type:before {
+    background: var(--ld-blue);
+    border: 1px solid var(--primary);
+    border-radius: 100vw 100vw;
+    position: absolute;
+    right: -0.075em;
+    transform: translateX(0em);
+    transition: transform 0.2s ease-in-out;
+    width: 2em;
+    z-index: 2;
+  }
+  .radio-switch label:first-of-type:after {
+    background: oklch(70% 0.0179 6.801 / 0.3);
+    border-radius: 1em;
+    margin: 0 1em;
+    transition: background 0.2s ease-in-out;
+    width: 4em;
+  }
+  .radio-switch input:first-of-type:checked ~ label:first-of-type:after {
+    background: oklch(70% 0.0179 6.801 / 0.2);
+  }
+  .radio-switch input:first-of-type:checked ~ label:first-of-type:before {
+    transform: translateX(-2em);
+  }
+  .radio-switch input:last-of-type:checked ~ label:last-of-type {
+    z-index: 1;
+  }
+}
