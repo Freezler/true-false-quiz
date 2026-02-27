@@ -75,6 +75,7 @@ header {
   min-width: 300px;
   width: 100%;
   max-width: 500px;
+  color:var(--ld-text);
   margin: 0 auto;
   text-align: center;
   background: var(--ld-blue);
@@ -106,6 +107,7 @@ header {
   font-weight: bold;
   letter-spacing: 0.04rem;
   width: 200px;
+  color: var(--ld-text);`
 }
 
 .statementWrapper {
@@ -137,6 +139,7 @@ header {
   padding-inline: 1rem;
   padding-block: 1rem;
   border-radius: 12px;
+  color: var(--ld-text);
 
   min-width: 24ch;
   background: var(--ld-statement);
