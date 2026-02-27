@@ -25,7 +25,8 @@
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
@@ -53,13 +54,13 @@ body {
 }
 .wrapper {
   transition: all 300s ease-in-out;
-  margin: 0` auto;
+  margin: 3rem auto;
   width: 100%;
   max-width: 60dvw;
   @media (max-width: 600px) {
     width: 100%;
     max-width: 90dvw;
-    margin: 1rem auto;
+    margin: 2.4rem auto;
   }
 }
 
@@ -74,7 +75,7 @@ main {
 header {
   min-width: 300px;
   width: 100%;
-  color:var(--ld-text);
+  color: var(--ld-text);
   margin: 0 auto;
   text-align: center;
   background: var(--ld-blue);
@@ -94,7 +95,6 @@ header {
   & p {
     font-size: 0.7rem;
     line-height: 1.05;
-
   }
 }
 
@@ -129,8 +129,13 @@ header {
   background-repeat: no-repeat;
   object-fit: fill;
   display: grid;
+  container-type: inline-size;
 }
-
+@container (width > 700px) {
+  .statementWrapper {
+    height: 600px;
+  }
+}
 #statement {
   border: 0.4px solid var(--shadow);
   box-shadow: -2px 2px 5px -2px var(--shadow);
@@ -205,12 +210,17 @@ button:has(.incorrect) {
 
 @layer switch {
   .radio-switch {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    zoom: 0.6;
     margin-top: 1rem;
     border: none;
     padding: 0;
     white-space: nowrap;
     display: flex;
     justify-content: center;
+    color: var(--ld-text);
   }
   .radio-switch legend {
     font-size: 2px;
