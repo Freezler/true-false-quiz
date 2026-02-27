@@ -53,7 +53,7 @@ body {
 }
 .wrapper {
   transition: all 300s ease-in-out;
-  margin: 3rem auto;
+  margin: 0` auto;
   width: 100%;
   max-width: 60dvw;
   @media (max-width: 600px) {
@@ -74,23 +74,18 @@ main {
 header {
   min-width: 300px;
   width: 100%;
-  max-width: 500px;
   color:var(--ld-text);
   margin: 0 auto;
   text-align: center;
   background: var(--ld-blue);
   border-radius: 0.5rem;
-  line-height: 1;
-
-  justify-content: center;
+  line-height: 0.8;
   place-content: center;
   place-items: center;
-  gap: 0.3rem;
-
   border: 1px solid var(--ld-border2);
   box-shadow: -1px 1px 10px 1px var(--ld-border);
   & h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
     text-decoration: underline;
     text-underline-offset: 12px;
     text-decoration-thickness: 2px;
@@ -104,7 +99,7 @@ header {
 }
 
 #score {
-  background: oklch(82.775% 0.11301 57.978 / 0.8);
+  background: var(--ld-blue);
   margin: 0 auto;
   margin-bottom: 1rem;
   corner-shape: scoop;
@@ -115,7 +110,7 @@ header {
   font-weight: bold;
   letter-spacing: 0.04rem;
   width: 200px;
-  color: var(--ld-text);`
+  color: var(--ld-text);
 }
 
 .statementWrapper {
