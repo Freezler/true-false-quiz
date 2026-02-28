@@ -60,7 +60,7 @@ body {
   max-width: 60dvw;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+
 
   @media (max-width: 600px) {
     width: 100%;
@@ -105,7 +105,7 @@ header {
 
 #score {
   background: var(--ld-blue);
-  margin: 0 auto;
+  margin: 2rem auto;
   corner-shape: squircle;
   border-radius: 100vw;
   text-align: center;
@@ -114,16 +114,12 @@ header {
   letter-spacing: 0.04rem;
   min-width: fit-content;
   padding-inline: 1rem;
-  color: var(--ld-text2);
+  color: var(--ld-text);
 }
 
 .statementWrapper {
   background-image:
-    linear-gradient(
-      to right,
-      var(--primary),
-      oklch(82.775% 0.11301 57.978 / 0.8)
-    ),
+    linear-gradient(to right, var(--primary), var(--secondary)),
     url("https://images.unsplash.com/photo-1506765515384-028b60a970df?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: 100%;
   background-position: center center;
@@ -150,36 +146,33 @@ header {
   min-width: 24ch;
   background: var(--ld-statement);
 }
-
-#explanation:has(.hidden) {
-  display: grid;
-  grid-template-rows: 0fr;
-
-  grid-template-rows: 1fr;
-
-  transition: grid-template-rows 500ms ease-in-out;
+div .explanationWrapper {
+  height: auto;
 }
-
-#explanation {
-  padding: 1rem;
-  grid-template-rows: 1fr;
+p#explanation {
+  padding: 1.2rem;
+  background: #5280b1;
   text-align: center;
+  justify-content: center;
   font-size: clamp(12px, 4vw, 22px);
   text-wrap: pretty;
-  border-radius: 0.624rem;
+  border-radius: var(--border-radius);
   color: var(--ld-text);
 }
 
 #options {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 0.425rem;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 1rem;
 }
 
 button {
   padding: 1.2rem;
   font-size: 1.2rem;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   width: 100%;
   border: 1px solid var(--ld-border);
   cursor: pointer;
