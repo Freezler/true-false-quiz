@@ -57,6 +57,7 @@ const resetQuiz = () => {
 	getNextFact();
 	hide(resetButton);
 }
+
 const hide = (element) => element.classList.add("hidden");
 const show = (element) => element.classList.remove("hidden");
 const disable = (button) => button.toggleAttribute('disabled', true);
