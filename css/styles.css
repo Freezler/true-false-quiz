@@ -1,6 +1,6 @@
 :root {
   --primary: oklch(60% 0.25 270);
-  --secondary: oklch(92% 0.12 100);
+  --secondary: oklch(20.294% 0.0768 280.36 / 0.898);
   --background: oklch(98% 0.015 240);
   --charcoal: oklch(20% 0.05 240);
   --correct: oklch(68% 0.18 145);
@@ -15,7 +15,9 @@
   --ld-bkgd: light-dark(var(--background), var(--charcoal));
   --ld-text: light-dark(var(--charcoal), var(--light-statement));
   --ld-text2: light-dark(var(--light-statement), var(--charcoal));
-  --ld-blue: light-dark(var(--primary), oklch(82.775% 0.11301 57.978 / 0.8));
+  --ld-blue: light-dark(var(--primary), var(--secondary));
+  --border-radius: 0.5rem;
+  --full-radius: 100vw;
 }
 
 *,
@@ -39,7 +41,7 @@ html:has(#mode-switcher #dark:checked) {
 
 body {
   margin: 0 auto;
-  padding: 0;
+  padding: 1rem;
   font-family: sans-serif;
   background-image: var(--background);
   background-repeat: no-repeat;
@@ -66,36 +68,34 @@ body {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-
   }
 }
 
 main {
-	display: flex;
-	flex-direction: column;
-	gap: 0.2rem;
-
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 header {
   min-width: 300px;
   width: 100%;
-  color: var(--ld-text2);
+  color: var(--ld-text);
   margin: 0 auto;
   text-align: center;
   background: var(--ld-blue);
-  border-radius: 0.5rem;
+  border-radius: var(--border-radius);
   line-height: 0.8;
   place-content: center;
   place-items: center;
   border: 1px solid var(--ld-border2);
-  box-shadow: -1px 1px 10px 1px var(--ld-border);
+  box-shadow: -1px 1px 16px 1px var(--ld-border);
   & h1 {
     font-size: 1.6rem;
     text-decoration: underline;
     text-underline-offset: 10px;
     text-decoration-thickness: 2px;
-    text-shadow: 1px 1px 2px var(--ld-border);
+    text-shadow: 1px 3px 2px var(--ld-border2);
   }
   & p {
     font-size: 0.7rem;
@@ -151,7 +151,6 @@ header {
   background: var(--ld-statement);
 }
 
-
 #explanation:has(.hidden) {
   display: grid;
   grid-template-rows: 0fr;
@@ -186,18 +185,18 @@ button {
   cursor: pointer;
   margin: 0 auto;
   box-shadow: 2px 2px 5px var(--shadow);
+}
 
-  & button:disabled {
-    cursor: not-allowed;
-    color: rgba(73, 70, 70, 0.5);
-  }
+button:disabled {
+  cursor: not-allowed;
+  color: rgba(73, 70, 70, 0.5);
 }
 .correct {
-  background-color: oklch(81.054% 0.19485 143.538);
+  background-color: var(--correct);
 }
 
 .incorrect {
-  background-color: oklch(63.443% 0.16884 14.395);
+  background-color: var(--incorrect);
 }
 .hidden {
   display: none;
@@ -212,20 +211,19 @@ button {
     display: flex;
     justify-content: center;
     color: var(--ld-text);
-    background: rgba(137, 238, 238, 0.483);
+    background: var(--ld-text2);
     padding: 1rem 1rem;
     border-radius: 100vw;
-		margin-bottom: 1rem;
+    margin-bottom: 1rem;
   }
   .radio-switch legend {
-    font-size: 2px;
     opacity: 0;
     position: absolute;
   }
   .radio-switch label {
     display: inline-block;
     line-height: 2;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     position: relative;
     z-index: 2;
   }
