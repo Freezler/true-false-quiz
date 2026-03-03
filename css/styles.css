@@ -1,6 +1,8 @@
 body {
   margin: 1rem auto;
-  padding: 3rem;
+  padding-block: 1rem;
+
+
   font-family: sans-serif;
 }
 
@@ -10,7 +12,7 @@ header {
 }
 
 main {
-  min-width: 25rem;
+  min-width: 22rem;
   max-width: 50%;
   margin: 0px auto;
   display: flex;
